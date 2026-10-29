@@ -10,6 +10,12 @@
 
             #endregion
 
+            #region Create DbContext and OnModelCreating and config directly in OnModelCreating
+
+            //Create DbContext and OnModelCreating and config directly in OnModelCreating
+
+            #endregion
+
         }
     }
 }
