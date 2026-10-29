@@ -4,6 +4,11 @@
     {
         static void Main(string[] args)
         {
+            #region Create console app with all entity classes
+
+            //Create console app with all entity classes
+
+            #endregion
 
         }
     }
