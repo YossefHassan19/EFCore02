@@ -16,6 +16,12 @@
 
             #endregion
 
+            #region config in separate configuration classes and Add-Migration
+
+            //config in separate configuration classes and Add-Migration
+
+            #endregion
+
         }
     }
 }
