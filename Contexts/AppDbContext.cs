@@ -1,4 +1,5 @@
-﻿using EFCore02.Models;
+﻿using EFCore02.Config;
+using EFCore02.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,10 @@ namespace EFCore02.Contexts
                       .IsRequired()
                       .OnDelete(DeleteBehavior.Cascade);
             });
+
+            modelBuilder.ApplyConfiguration(new EventConfiguration());
+            modelBuilder.ApplyConfiguration(new BadgeConfiguration());
+
         }
     }
 }

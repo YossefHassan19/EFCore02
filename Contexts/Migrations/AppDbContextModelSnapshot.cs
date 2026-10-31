@@ -79,20 +79,26 @@ namespace EFCore02.Contexts.Migrations
 
                     b.Property<string>("BadgeNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<DateTime>("IssuedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
-                    b.Property<int>("Tier")
-                        .HasColumnType("int");
+                    b.Property<string>("Tier")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AttendeeId")
                         .IsUnique();
 
-                    b.ToTable("Badges");
+                    b.HasIndex("BadgeNumber")
+                        .IsUnique();
+
+                    b.ToTable("Badges", (string)null);
                 });
 
             modelBuilder.Entity("EFCore02.Models.Event", b =>
@@ -105,7 +111,8 @@ namespace EFCore02.Contexts.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(4000)
+                        .HasColumnType("nvarchar(4000)");
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
@@ -121,13 +128,14 @@ namespace EFCore02.Contexts.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("OrganizerId");
 
-                    b.ToTable("Events");
+                    b.ToTable("Events", (string)null);
                 });
 
             modelBuilder.Entity("EFCore02.Models.Organizer", b =>
